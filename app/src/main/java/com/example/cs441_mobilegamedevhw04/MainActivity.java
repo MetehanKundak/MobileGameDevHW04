@@ -3,6 +3,7 @@ package com.example.cs441_mobilegamedevhw04;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
@@ -12,68 +13,50 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends AppCompatActivity {
 
+    private int screen_w;
+    private int screen_h;
     private ViewGroup main;
-    private float x_new;
-    private float y_new;
-
+    private float x;
+    private float y;
+    private float image_x;
+    private Handler handler = new Handler();
+    private Timer timer = new Timer();
+    ImageView image = findViewById(R.id.image);
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //ImageView image = findViewById(R.id.image);
 
-        ImageView image = (ImageView) findViewById(R.id.image);
-        main = (RelativeLayout) findViewById(R.id.Main);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        changePos();
+                    }
+                });
+            }
+        },0,10);
 
-        image.setOnTouchListener(onTouchListener());
+
 
 
 
     }
-
-
-
-
-
-    @SuppressLint("ClickableViewAccessibility")
-    private OnTouchListener onTouchListener() {
-
-
-        return (view, event) -> {
-            float x = event.getRawX();
-            float y = event.getRawY();
-
-            switch (event.getAction() & MotionEvent.ACTION_MASK){
-                case MotionEvent.ACTION_DOWN:
-                    RelativeLayout.LayoutParams Params = (RelativeLayout.LayoutParams) view.getLayoutParams();
-                    x_new = x - Params.leftMargin;
-                    y_new = y - Params.topMargin;
-                    break;
-
-                case MotionEvent.ACTION_UP:
-                    Toast.makeText(MainActivity.this, "You have clicked the image", Toast.LENGTH_SHORT).show();
-                    break;
-
-
-
-                case MotionEvent.ACTION_MOVE:
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-                    layoutParams.leftMargin = (int) (x - x_new);
-                    layoutParams.rightMargin = 0;
-                    layoutParams.topMargin = (int) (y - y_new);
-                    layoutParams.bottomMargin = 0;
-                    view.setLayoutParams(layoutParams );
-                    break;
-
-
-
-
-            }
-            main.invalidate();
-            return true;
-        };
+    public void changePos(){
+        x +=10;
+        if (image.getX()+ image.getHeight()>10){
+           image_x = (float) Math.floor(Math.random() * image.getHeight());
+        }
+        image.setX(image_x);
     }
 }

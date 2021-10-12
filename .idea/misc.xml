@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/meteh/OneDrive/Belgeler/LECTURES21/CS441-MOBILE/MobileGameDevHW04/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/meteh/OneDrive/Belgeler/LECTURES21/CS441-MOBILE/MobileGameDevHW04/app/src/main/res/drawable/baxter.xml" value="0.1125" />
+        <entry key="..\:/Users/meteh/OneDrive/Belgeler/LECTURES21/CS441-MOBILE/MobileGameDevHW04/app/src/main/res/drawable/bingoimage.xml" value="0.1125" />
+        <entry key="..\:/Users/meteh/OneDrive/Belgeler/LECTURES21/CS441-MOBILE/MobileGameDevHW04/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
   </component>

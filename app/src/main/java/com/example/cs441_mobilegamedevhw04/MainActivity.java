@@ -60,11 +60,3 @@ public class MainActivity extends AppCompatActivity {
         image.setX(image_x);
     }
 }
-  }
-public void changePos(){
-        x +=10;
-        if (image.getX()+ image.getHeight()>10){
-        image_x = (float) Math.floor(Math.random() * image.getHeight());
-        }
-        image.setX(image_x);
-        }

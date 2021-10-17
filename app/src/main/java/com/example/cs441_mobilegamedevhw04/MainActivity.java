@@ -34,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //ImageView image = findViewById(R.id.image);
-
+        public void changePos(){
+            x +=10;
+            if (image.getX()+ image.getHeight()>10){
+                image_x = (float) Math.floor(Math.random() * image.getHeight());
+            }
+            image.setX(image_x);
+        }
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -52,11 +58,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void changePos(){
-        x +=10;
-        if (image.getX()+ image.getHeight()>10){
-           image_x = (float) Math.floor(Math.random() * image.getHeight());
-        }
-        image.setX(image_x);
-    }
+
 }

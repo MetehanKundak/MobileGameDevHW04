@@ -4,4 +4,10 @@
     <string name="up">up</string>
     <string name="right">right</string>
     <string name="down">down</string>
+    <string name="up_l" />
+    <string name="upl" />
+    <string name="downr">downR</string>
+    <string name="upr">upr</string>
+    <string name="downl">downL</string>
+    <string name="todo">TODO</string>
 </resources>
